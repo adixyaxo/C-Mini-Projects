@@ -24,7 +24,8 @@ A curated list of beginner-friendly C projects designed to build a strong founda
 
 ## 📌 2. Contact Book
 
-**Description:** Store and manage contacts dynamically.
+**Description:** Store and manage contacts dynamically
+.
 
 **Concepts:**
 
