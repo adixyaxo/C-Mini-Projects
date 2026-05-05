@@ -26,6 +26,7 @@ A curated list of beginner-friendly C projects designed to build a strong founda
 
 **Description:** Store and manage contacts dynamically.
 
+
 **Concepts:**
 
 * Struct pointers
