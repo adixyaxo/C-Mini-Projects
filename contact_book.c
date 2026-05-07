@@ -19,36 +19,33 @@
 
 typedef struct
 {
-    char* number;
-    char* name;
-    char* email;
+    char number[100];
+    char name[100];
+    char email[100];
 } contact;
 
 char* info(contact c){
-    char* information;
+    char* information = malloc(256);
     sprintf(information,"Name :%s\n✉ %s\n✆ %s\n",c.name,c.email,c.number);
     return information;
 }
 
 contact search(char* name){
-    char *file_path;
+    
+    char *file_path = malloc(256);
     sprintf(file_path, "contact_book_database/%s", name);
     FILE *file = fopen(file_path,"r");
     if (file == NULL)
     {
         printf("The contact does not exist\n");
-        contact a;
+        contact a = {NULL,NULL,NULL};
         return a;
     }
     else{
-        char buffer[256];
-    fgets(buffer, sizeof(buffer), file);
-        contact c;
-        c.name = buffer;
-    fgets(buffer, sizeof(buffer), file);
-        c.number = buffer;
-    fgets(buffer, sizeof(buffer), file);
-        c.email= buffer;
+    contact c;
+    fgets(c.name, sizeof(c.name), file);
+    fgets(c.number, sizeof(c.number), file);
+    fgets(c.email, sizeof(c.email), file);
         return c;
     }
 }
@@ -64,7 +61,7 @@ int main() {
     if (input == 1)
     {
         char* name_to_search;
-        scanf("%s",name_to_search);
+        scanf("%s",&name_to_search);
 
         printf("%s",info(search(name_to_search)));
     }
